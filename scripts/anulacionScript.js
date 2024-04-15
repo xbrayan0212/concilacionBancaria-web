@@ -26,6 +26,7 @@ function buscarValidar(evento) {
                     document.getElementById('ordenA').value = partesRespuesta[1]; 
                     document.getElementById('sumaA').value = partesRespuesta[2]; 
                     document.getElementById('detalleA').value = partesRespuesta[3]; 
+                    mostrarMontoEnLetrasA();
                     console.log(2);
                 } else if (respuesta === 'anulado') {
                     mensajeError.innerHTML = 'El número de cheque fue anulado.';

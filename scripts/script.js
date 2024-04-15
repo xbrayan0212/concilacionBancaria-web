@@ -75,3 +75,11 @@ function mostrarMontoEnLetras() {
     document.getElementById("sumaletras-Cheque").value = montoEnLetras;
     document.getElementById("montoCheque").value = monto;
 }
+function mostrarMontoEnLetrasA() {
+    var monto = document.getElementById("sumaA").value;
+    var parteEntera = Math.floor(monto);
+    var parteDecimal = Math.round((monto - parteEntera) * 100);
+    var montoEnLetras = numeroALetras(parteEntera) + ' balboas con ' + (parteDecimal < 10 ? '0' : '') + parteDecimal + '/100';
+    document.getElementById("sumaletras").value = montoEnLetras;
+    console.log(montoEnLetras)
+}
