@@ -21,7 +21,7 @@ function buscarValidar(evento) {
                     mensajeError.style.backgroundColor = 'rgba(0, 255, 38, 0.7)';
                     camposAdicionales.style.display = 'block';
                     var partesRespuesta = respuesta.split(',');
-                    // Actualizar los campos del formulario con los datos obtenidos
+                    // Actualizar los campos del formulario con los datos obtenidos//
                     document.getElementById('fechaA').value = partesRespuesta[0]; 
                     document.getElementById('ordenA').value = partesRespuesta[1]; 
                     document.getElementById('sumaA').value = partesRespuesta[2]; 

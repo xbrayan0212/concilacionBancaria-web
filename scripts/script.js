@@ -75,6 +75,7 @@ function mostrarMontoEnLetras() {
     document.getElementById("sumaletras-Cheque").value = montoEnLetras;
     document.getElementById("montoCheque").value = monto;
 }
+//funcion para anulacion.html
 function mostrarMontoEnLetrasA() {
     var monto = document.getElementById("sumaA").value;
     var parteEntera = Math.floor(monto);
