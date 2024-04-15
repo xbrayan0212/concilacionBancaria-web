@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+        font-family: "Open Sans", sans-serif;
+}
+
+:root{
+    --color1 : rgb(252, 252, 252);
+    --color2 : rgb(10, 10, 10);
+    --color3 : rgb(233, 65, 65);
+}
+
+main {
+    background-color: rgb(255, 255, 255);
+    width: 950px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.contenedor{
+    display: flex;
+    background-color: var(--color1);
+    height: 100%;
+}
+
+.imagen,
+.login {
+    flex: 1; 
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    background-color: rgba(0, 0, 0, 0.041);
+}
+.imagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    image-rendering: auto;
+}
+.login h1{
+    line-height: 70px;
+    font-size: 25px;
+}
+.login h2{
+    margin: 5% 0;
+    margin-left: 100px;
+    font-size: 18px;
+}
+.logo{
+    display: flex;
+    margin-top: 12%;
+    margin-left: 100px;
+}
+.logo img{
+    width: 80px;
+    height: 70px;
+}
+.form{
+    background-color: blue;
+}
+label{
+    margin-left: 100px;
+    border-radius: 5px;
+    height: 30px;
+    width: 270px;   
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.466); 
+    transition: box-shadow 0.3s ease; 
+    margin-bottom: 15px;
+    padding: 10px;
+}
+label img{
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    margin-left: 10px;
+    position: relative;
+}
+.input{
+    margin: 0;
+    margin-top: -10px;
+    width: 200px;
+    height: 30px;
+    border: 0px ;
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: rgba(127, 255, 212, 0); 
+   transition: box-shadow 0.3s ease ; 
+   margin-bottom: 30px;
+}
+label:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.493);
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+button{
+    text-decoration: none;
+    background-color: var(--color2);
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--color1);
+}
+p{
+   text-align: center; 
+}
+button{
+    text-decoration: none;
+    background-color: var(--color2);
+    width: 200px;
+    margin: 20px 130px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--color1);
+    text-align: center;
+}
+.errorM{
+    color: red; 
+    font-size: 13px; 
+}

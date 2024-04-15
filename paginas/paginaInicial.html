@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chequesStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <button id="boton"><img src="../imagenes/icons8-menú-24 - copia.png" alt=""></button>
+        <div class="contenedor-logo">
+            <img id="logo" src="../imagenes/logo.png" alt="logo">
+           <!-- <h1 id="nombre-logo">Elite Snike</h1>-->
+        </div>
+        <nav id="nav">
+            <ul class="ul-navbar">
+                <li class="li-navbar"><a href="paginaInicial.html">Inicio</a></li>
+                <li class="li-navbar"><a href="#" onclick="loadPage('cheques.php')">Cheques</a></li>
+                <li id="subnavbar" class="li-navbar"><a href="#">Operaciones</a>
+                    <ul class="submenu">
+                        <li class="li-submenu"><a href="#" onclick="loadPage('anulacion.html')">Anulación</a></li>
+                        <li class="li-submenu"><a href="#" onclick="loadPage('sacarCheque.html')">Sacar de Circulación</a></li>
+                    </ul>
+                </li>
+                <li class="li-navbar"><a href="#" onclick="loadPage('transacciones.html')">Otras transacciones</a></li>
+                <li class="li-navbar"><a href="#">Concilación</a></li>
+                <li class="li-navbar"><a href="#">Reportes</a></li>
+                <li class="li-navbar"><a href="#">Mantemiento</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="mainContent">  
+        <img id="imgPrincipal" src="../imagenes/diego-jaramillo-W4swGaKFHVQ-unsplash.jpg" alt="">
+    </main>
+    
+    <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/validaciones.js" defer></script>
+    <script src="../scripts/anulacionScript.js" defer></script>
+</body>
+</html>

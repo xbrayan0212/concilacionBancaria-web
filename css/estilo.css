@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+:root{
+    --color1 : rgb(252, 252, 252);
+    --color2 :  rgba(5, 13, 131, 0.678);
+    --color3 :  rgb(206, 206, 206);
+}
+.main{
+    margin: 30px;
+     width: 90vw;
+     height: 80vh;
+     border: 1px solid --color3 ;
+     margin: 30px auto ;
+}
+.contenedor {
+    height: 450px;
+    flex-direction: row; 
+    padding: 30px;
+    margin-top: 20px;
+}
+main h1{
+    display: block;
+    margin: 0 40px;
+    background-color: rgba(5, 13, 131, 0.678);
+    color: white;
+    padding-left: 10px;
+    font-size: 30px;
+    margin: 0 auto;
+    font-family: "Reddit Mono", monospace;
+
+}
+.seccionBuscar{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.demasCampos{
+    display: flex;
+    justify-content: space-around;
+    max-height: max-content;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.seccion{
+    line-height: 20px;
+    width: 45%;
+}
+label{
+    font-size: 15px;
+}
+input{
+    margin-bottom: 40px;
+    border: 1px solid rgb(170, 170, 170);
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+#btnBuscar{
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 9px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+#anular{
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 9px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    margin: 20px auto;
+    margin-left: 10px;
+}
+.contenedorDemasCampos{
+    display: none;
+}
+/*
+.seccion{
+    flex: 1;
+    padding: 0 40px;
+}
+.seccion h2{
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.116);
+    height: 40px;
+    line-height: 40px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: "Reddit Mono", monospace;
+    
+}
+
+label{
+    font-size: 15px;
+}
+.cheque{
+    margin: 0px 10px 30px 0px;
+    width: 120px;
+}
+.orden{
+    width: 80%;
+    margin: 5px auto 30px auto;
+    max-width: 400px;
+}
+#ordenA{
+    max-width: 200px;
+}
+.sumaletras{
+    width: 250px;
+    background-color: rgba(230, 230, 230, 0.904);
+    border: none;
+    margin: 0px 0px 30px 5px;
+}
+.fecha{
+    margin: 30px 0;
+}
+#detalle{
+    width: 90%;
+}
+input{
+    border: 1px solid rgb(170, 170, 170);
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+#btnBuscar{
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 9px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+.fechaA{
+    margin-bottom: 50px;
+}
+.detalle{
+    max-width: 400px;
+}
+#anular{
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 9px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    margin: 100px;
+}
+input:disabled{
+    background-color:var(--color3);
+}
+#anular:hover{
+    background-color: rgb(0, 7, 99);
+}
+#btnBuscar:hover{
+    background-color: rgb(0, 7, 99);
+}
+#sacar{
+    background-color: var(--color2);
+    color: var(--color1);
+    padding: 9px;
+    width: 300px;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    margin: 100px;
+}
+
+/*transacciones*/
+#mainTransacciones{
+    margin: 30px 100px;
+}
+#ltransaccion{
+    margin: 50px 0px 20px 120px;
+}
+#transaccion{
+    margin-top: 30px;
+    width: 200px;
+    height: 30px;
+}
+/*anulacion*/
+#mensajeBuscar{
+    text-align: center;
+    padding: 10px 0;
+}
+/*.demasCampos{
+    display: none;
+}
+.demasCampos.mostrar {
+    display: block;
+}

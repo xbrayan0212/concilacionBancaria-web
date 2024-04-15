@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+    <main id="mainAnulacion" class="main">
+        <h1>Anulación de Cheques</h1>
+        <section class="contenedor">
+            <div class="seccionBuscar">
+                <label for="nCheque">NO. de Cheque</label>
+                <input id="Numerocheque" name="Numerocheque" class="cheque" type="text">
+                    <button id="btnBuscar" onclick="buscarValidar(event)">Buscar</button>
+                    <p id="mensajeBuscar"></p>
+                    <br>
+            </div>
+            <div class="contenedorDemasCampos">
+            <div class="demasCampos">
+                <section class="camposAuto seccion">
+                    <label for="fechaA">Fecha</label>
+                    <input id="fechaA" class="fecha" readonly   type="date">
+                    <br>
+                    <label for="orden">Páguese a la Orden de:</label><br>
+                    <input id="ordenA" class="orden" readonly type="text"><br>
+                    <label for="sumaA">La Suma de:</label><br>
+                    <input type="text" readonly id="sumaA" >
+                    <input type="text"  name="suma" id="sumaletras" class="sumaletras"><br>
+                    <label for="detalle">Detalle:</label><br>
+                    <input id="detalleA"  readonly   type="text"> 
+                </section>
+                <section class="camposInsert seccion">
+                    <label for="fechaAnulacion">Fecha Anulación</label>
+                    <input   id="fechaAnulacion" class="fechaA" type="date"><br>
+                    <label for="detalleAnulacion">Detalle:</label><br>
+                    <textarea name="detalleA" id="detalleAnulacion" class="detalle" cols="50" rows="5"></textarea><br>
+                <button id="anular">Anular</button>
+                </section>
+            </div>
+        </div>
+        </section>
+    </main>
+    <script src="scripts/anulacionScript.js"></script>
+</body>
+</html>
