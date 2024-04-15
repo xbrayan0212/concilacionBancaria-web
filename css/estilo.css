@@ -17,10 +17,11 @@
      margin: 30px auto ;
 }
 .contenedor {
-    height: 450px;
+    height: max-content;
     flex-direction: row; 
     padding: 30px;
     margin-top: 20px;
+    background-color: rgba(221, 221, 221, 0.541);
 }
 main h1{
     display: block;
@@ -79,9 +80,19 @@ input{
     margin: 20px auto;
     margin-left: 10px;
 }
+#ordenA,#sumaA{
+    min-width: 200px;
+    max-width: 300px;
+}
+#sumaletras{
+    width: 300px;
+    background-color: rgb(253, 253, 253);
+}
+
 .contenedorDemasCampos{
     display: none;
 }
+
 /*
 .seccion{
     flex: 1;
