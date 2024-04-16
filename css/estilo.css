@@ -93,6 +93,9 @@ input{
     display: none;
 }
 
+#ordenA{
+    width: 500px;
+}
 /*
 .seccion{
     flex: 1;
