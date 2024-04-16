@@ -19,7 +19,7 @@ if (isset($_POST['nCheque'])) {
         } else {
             include 'rellenarCampos.php'; // Incluir el archivo con la función
             rellenarCamposFormulario($numeroCheque); 
-            echo ', noAnulado';
+            echo '* noAnulado';
         }
               
     } else {
