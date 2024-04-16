@@ -54,6 +54,7 @@ function buscarValidar(evento) {
 }
 //funcion para evitar enviar campos vacios en la anulacion de cheques
 function validarCamposAnulacion(event){
+    event.preventDefault(); // Evita que se envíe el formulario automáticamente
     var fechaA = document.getElementById('fechaAnulacion').value
     var detalleA = document.getElementById('detalleAnulacion').value
 
@@ -69,7 +70,6 @@ function validarCamposAnulacion(event){
                var response = JSON.parse(xhr.responseText);
                if (response.success) {
                    alert("Los datos se han guardado exitosamente.");
-                   co
                } else {
                    alert("Error al guardar los datos: " + response.mensaje);
                }
