@@ -60,7 +60,6 @@ function validarFormulario(event) {
         alert("Por favor, complete todos los campos.");
         return;
     }
-
     // Si pasa la validación, enviar los datos mediante AJAX
     var formData = new FormData(document.getElementById('formulario'));
     var xhr = new XMLHttpRequest();
@@ -69,7 +68,6 @@ function validarFormulario(event) {
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
                 alert("Los datos se han guardado exitosamente.");
-                // Puedes hacer más acciones aquí si es necesario
             } else {
                 alert("Error al guardar los datos: " + response.mensaje);
             }

@@ -20,7 +20,8 @@ function buscarValidar(evento) {
                     mensajeError.innerHTML = 'El número de cheque es válido'; // Mensaje corregido
                     mensajeError.style.backgroundColor = 'rgba(0, 255, 38, 0.7)';
                     camposAdicionales.style.display = 'block';
-                    var partesRespuesta = respuesta.split(',');
+                    // tomo los datos y los voy agregando separandolos por el *
+                    var partesRespuesta = respuesta.split('*');
                     // Actualizar los campos del formulario con los datos obtenidos//
                     document.getElementById('fechaA').value = partesRespuesta[0]; 
                     document.getElementById('ordenA').value = partesRespuesta[1]; 
@@ -50,4 +51,31 @@ function buscarValidar(evento) {
         }
     };
     xhr.send('nCheque=' + encodeURIComponent(nCheque));
+}
+//funcion para evitar enviar campos vacios en la anulacion de cheques
+function validarCamposAnulacion(event){
+    var fechaA = document.getElementById('fechaAnulacion').value
+    var detalleA = document.getElementById('detalleAnulacion').value
+
+    if(fechaA === '' || detalleA === '' ){
+        alert('rellene todos los campos');
+        return;
+    }
+       // Si pasa la validación, enviar los datos mediante AJAX
+       var formData = new FormData(document.getElementById('formularioAnulacion'));
+       var xhr = new XMLHttpRequest();
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+               var response = JSON.parse(xhr.responseText);
+               if (response.success) {
+                   alert("Los datos se han guardado exitosamente.");
+                   co
+               } else {
+                   alert("Error al guardar los datos: " + response.mensaje);
+               }
+           }
+       };
+       xhr.open('POST', '../logica/insertarAnulacion.php', true);
+       xhr.send(formData);
+    
 }
