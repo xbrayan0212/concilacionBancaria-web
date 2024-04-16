@@ -1,9 +1,4 @@
-<!--<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    header('Location: paginaInicial.html?page=cheques');
-    exit;
-}
-?>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </main>
-    <script>
-    window.onload = function() {
-        document.getElementById('cheque').focus();
-    };
-</script>
 
 </body>
 </html>
