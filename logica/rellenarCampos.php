@@ -20,7 +20,8 @@ function rellenarCamposFormulario($numeroCheque){
             $rowP = $resultProveedor->fetch_assoc(); 
             //le asigno el nombre al proveedor
             $beneficiario = $rowP['nombre'];
-        $cheque = $fecha . ',' . $beneficiario . ','.$monto. ','.$descripcion;
+            //el * es el identificador para separar los datos
+        $cheque = $fecha . '*' . $beneficiario . '*'.$monto. '*'.$descripcion;
         echo $cheque;
     } else {
         echo 'error';
