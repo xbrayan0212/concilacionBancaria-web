@@ -53,3 +53,31 @@ function buscarValidarSacarCirculacion(evento) {
     };
     xhr.send('nCheque=' + encodeURIComponent(nCheque));
 }
+
+//funcion para evitar enviar campos vacios en la Circulacion de cheques
+function validarCamposSacarCirculacion(event){
+    event.preventDefault(); // Evita que se envíe el formulario automáticamente
+    var fechaS = document.getElementById('fechaSacarCirculacion').value
+
+    if(fechaS === ''){
+        alert('rellene todos los campos');
+        return;
+    }
+       // Si pasa la validación, enviar los datos mediante AJAX
+       var formData = new FormData(document.getElementById('formularioSacar'));
+       var xhr = new XMLHttpRequest();
+       xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+               var response = JSON.parse(xhr.responseText);
+               if (response.success) {
+                   alert("Los datos se han guardado exitosamente.");
+               } else {
+                   alert("Error al guardar los datos: " + response.mensaje);
+               }
+           }
+       };
+       //envia datos a logica
+       xhr.open('POST', '../logica/insertarCirculacion.php', true);
+       xhr.send(formData);
+    
+}
