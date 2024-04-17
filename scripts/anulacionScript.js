@@ -75,6 +75,7 @@ function validarCamposAnulacion(event){
                }
            }
        };
+       //envia datos a logica
        xhr.open('POST', '../logica/insertarAnulacion.php', true);
        xhr.send(formData);
     
