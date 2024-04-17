@@ -84,7 +84,7 @@ function mostrarMontoEnLetrasA() {
     document.getElementById("sumaletras").value = montoEnLetras;
     console.log(montoEnLetras)
 }
-//agregado para mostrar en letras en Sacar de Circulacion
+//agregado para mostrar en letras en Sacar de Circulacion :)
 function mostrarMontoEnLetrasSacarCirculacion() {
     var monto = document.getElementById("sumaS").value;
     var parteEntera = Math.floor(monto);
