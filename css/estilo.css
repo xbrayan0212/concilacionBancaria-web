@@ -96,8 +96,7 @@ input{
 display: none;
 }
 
-<<<<<<< Updated upstream
-=======
+
 #ordenA{
     width: 500px;
 }
@@ -105,8 +104,6 @@ display: none;
 #ordenS{
     width: 500px;
 }
->>>>>>> Stashed changes
-/*
 .seccion{
     flex: 1;
     padding: 0 40px;
