@@ -84,3 +84,12 @@ function mostrarMontoEnLetrasA() {
     document.getElementById("sumaletras").value = montoEnLetras;
     console.log(montoEnLetras)
 }
+//agregado para mostrar en letras en Sacar de Circulacion :)
+function mostrarMontoEnLetrasSacarCirculacion() {
+    var monto = document.getElementById("sumaS").value;
+    var parteEntera = Math.floor(monto);
+    var parteDecimal = Math.round((monto - parteEntera) * 100);
+    var montoEnLetras = numeroALetras(parteEntera) + ' balboas con ' + (parteDecimal < 10 ? '0' : '') + parteDecimal + '/100';
+    document.getElementById("sumaletras").value = montoEnLetras;
+    console.log(montoEnLetras)
+}

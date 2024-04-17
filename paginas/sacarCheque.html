@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <main id="mainSacarCirculacion" class="main">
+        <form id="formularioSacar" onsubmit="validarCamposSacarCirculacion(event);">
+            <h1>Sacar De Circulación</h1>
+            <section class="contenedor">
+                <div class="seccionBuscar">
+                    <label for="nCheque">NO. de Cheque</label>
+                    <input id="NumerochequeS" name="NumerochequeS" class="cheque" type="text">
+                    <button id="btnBuscar" onclick="buscarValidarSacarCirculacion(event)">Buscar</button>
+                    <p id="mensajeBuscar"></p>
+                    <br>
+                </div>
+                <div class="contenedorDemasCampos">
+                    <div class="demasCampos">
+                        <section class="camposAuto seccion">
+                            <label for="fechaS">Fecha</label>
+                            <input id="fechaS" class="fecha" readonly type="date">
+                            <br>
+                            <label for="orden">Páguese a la Orden de:</label><br>
+                            <input id="ordenS" class="orden" readonly type="text"><br>
+                            <label for="sumaS">La Suma de:</label><br>
+                            <input type="text" readonly id="sumaS">
+                            <input type="text" name="suma" id="sumaletras" class="sumaletras"><br>
+                            <label for="detalle">Detalle:</label><br>
+                            <input id="detalleS" readonly type="text">
+                        </section>
+                        <section class="camposInsert seccion">
+                            <label for="fechaAnulacion">Fecha Anulación</label>
+                            <input id="fechaSacarCirculacion" class="fechaA" type="date"><br>
+                            <button id="anular">Anular</button>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+    <script src="../scripts/sacarCirculacion.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>
