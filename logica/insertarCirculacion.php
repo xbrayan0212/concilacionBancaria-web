@@ -1,4 +1,4 @@
-git<?php
+<?php
 include 'conexionDB.php';
 
 // Inicializa el array de respuesta
