@@ -14,11 +14,11 @@ function obtenerOpcionesTransacciones($conn) {
             // Determinar el grupo para esta transacción
             $grupo = '';
             if ($codigo <= 5) {
-                $grupo = 'Libro';
+                $grupo = 'LIBRO';
             } elseif ($codigo <= 7) {
-                $grupo = 'Banco';
+                $grupo = 'BANCO';
             } else {
-                $grupo = 'Transferencias';
+                $grupo = 'TRANFERENCIAS';
             }
 
             // Si el grupo cambió, cerrar el grupo anterior y abrir uno nuevo
