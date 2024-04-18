@@ -223,3 +223,21 @@ input:disabled{
 .demasCampos.mostrar {
     display: block;
 }
+*/
+.botonesTransacciones{
+        text-align: center;
+}
+.botonesTransacciones button{
+    margin: 0 auto;
+    width: 60px;
+    line-height: 40px;
+    width: 100px;
+    margin: 0 20px;
+    background-color: rgba(14, 4, 150, 0.678);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+.botonesTransacciones button:hover{
+    background-color: rgba(3, 3, 82, 0.788);
+}

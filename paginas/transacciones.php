@@ -19,9 +19,12 @@
                 <label for="fecha">Fecha</label>
                 <input id="fechaT" name='fechaT' class="fecha"  type="date">
                 <label for="monto">Monto</label>
-                <input id="montoT" name='montoT' type="text">
-                <button type='submit' >Grabar</button>
-                <button type = 'reset'>Nuevo</button>
+                <input id="montoT" name='montoT' type="text"> <br>
+                <!--separar para darle estido-->
+                <div class='botonesTransacciones'>
+                    <button type='submit' >Grabar</button>
+                    <button type = 'reset'>Nuevo</button>
+                </div>
         </form>
     </main>
 </body>
