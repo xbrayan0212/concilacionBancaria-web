@@ -7,19 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <main id="mainTransacciones" >
-        <form action="">
+    <main id="mainTransacciones" onsubmit="validarCamposOtrasTransacciones(event);">
+        <form action=""  id='formularioTransacciones'>
             <h1>Otras Transacciones - Depósitos,Ajustes y Notas(DB/CR)</h1>
-            <label id="ltransaccion" for="transacciones">Transacción</label>
+            <label id="transacciones" for="transacciones">Transacción</label>
             <select name="transaccion" id="transaccion">
                 <option value="">Seleccione una opción</option>
                 <?php include '../logica/buscarOpcionTransacciones.php'; obtenerOpcionesTransacciones($conn); ?>
             </select>
             <br>
                 <label for="fecha">Fecha</label>
-                <input id="fechaT" class="fecha"  type="date">
+                <input id="fechaT" name='fechaT' class="fecha"  type="date">
                 <label for="monto">Monto</label>
-                <input id="montoT" type="text">
+                <input id="montoT" name='montoT' type="text">
+                <button type='submit' >Grabar</button>
+                <button type = 'reset'>Nuevo</button>
         </form>
     </main>
 </body>
