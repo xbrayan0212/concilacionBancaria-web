@@ -12,7 +12,7 @@ function rellenarCamposFormulario($numeroCheque){
         $fecha = $row['fecha'];
         $monto = $row['monto'];
         $descripcion = $row['descripcion'];
-        $codigoProveedor = $row['beneficiario'];//almaceno el codigo del proveedor
+        $codigoProveedor = $row['beneficiario'];//almaceno el codigo    del proveedor
         //Consulta para obtener el nombre y no codigo xd
         $sqlProveedor = "SELECT nombre FROM proveedores WHERE codigo = '$codigoProveedor'";
         $resultProveedor = $conn->query($sqlProveedor); 

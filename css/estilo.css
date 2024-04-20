@@ -223,3 +223,167 @@ input:disabled{
 .demasCampos.mostrar {
     display: block;
 }
+*/
+/*COncilacionnnnn*/
+#concilacionSeccion {
+    display: flex;
+    flex-direction: column;
+    height: max-content; /* Asegura que el contenedor ocupe toda la altura visible del viewport */
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 5%;
+}
+#concilacionMain h1{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.seccion-1 {
+    padding: 10px;
+    text-align: center;
+    margin: 30px 0;
+}
+.seccion-1 select{
+    width: 150px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+.seccion-1 button{
+    background-color: rgb(33, 33, 148);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+}
+.seccion-1 button:hover{
+    background-color: rgb(3, 3, 80);
+}
+.libro{
+    display: flex;
+}
+
+.labels {
+    flex: 1; /* Que ocupe la mitad del espacio disponible */
+    display: flex;
+    flex-direction: column;
+}
+.labels label{
+    height: 40px;
+    margin: 00px 0px;
+    line-height: 40px;
+    padding-left: 10%;
+    font-weight: bold;
+
+}
+.inputs {
+    flex: 1; /* Que ocupe la mitad del espacio disponible */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.inputs input{
+    height: 40px;
+    margin: 0px 0px;
+    line-height: 40px;
+    width: 50%;
+    margin-left: 0%;
+    background-color: rgba(156, 152, 152, 0.247);
+    border-radius: 0;
+    pointer-events: none;
+    
+}
+.div-subtotal{
+    display: flex;
+    margin-left: 2%;
+    width: 100%;
+}
+#subtotalInput,
+#saldoConciliado{
+    margin-left: 52%;
+}
+.label-subtotal{
+    line-height: 40px;
+    width: 50%;
+    text-align: end;
+    padding-right: 20px;
+
+}
+.labels label.label-end{
+    margin-top: 0px;
+
+}
+.labels label:nth-child(2) {
+    padding-left: 15%; 
+}
+.labels label:nth-child(3),
+.labels label:nth-child(4),
+.labels label:nth-child(5) {
+    padding-left:20%; 
+}
+.div-subtotal {
+
+}
+/*parte dos libro*/
+
+.dos .labels label:nth-child(1) {
+    padding-left: 15%; 
+}
+.dos .labels label:nth-child(2) {
+    padding-left: 20%; 
+}
+.dos .labels label:nth-child(3){
+    padding-left:20%;
+}
+.dos .labels label:nth-child(4){
+    padding-left:10%;
+    margin-top:40px;
+}
+
+/*divisor*/
+ .divisor{
+    margin-top: 30px;
+}
+
+/*BANCOO*/
+.banco{
+    display: flex;
+    margin-top: 20px
+}
+.banco .labels label:nth-child(1) {
+    padding-left: 10%; 
+}
+.banco .labels label:nth-child(2) {
+    padding-left: 20%; 
+}
+.banco .labels label:nth-child(3){
+    padding-left:20%;
+}
+.banco .labels label:nth-child(4){
+    padding-left:20%;
+}
+.banco .labels label:nth-child(5){
+    padding-left:10%;
+    margin-top: 10px;
+}
+/*botones*/
+.botones{
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+.botones button{
+    padding: 10px 30px;
+    background-color: rgb(5, 5, 167);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    margin: 0px 20px;
+}
+
+#saldoBanco{
+    background-color: white;
+    margin-left: 52%;
+  }
