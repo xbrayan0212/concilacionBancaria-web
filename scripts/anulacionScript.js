@@ -42,7 +42,7 @@ function buscarValidar(evento) {
                 }else if (respuesta === 'fueraDeCirculacion') {
                     mensajeError.innerHTML = 'El número de cheque ya esta fuera de circulacion';
                     camposAdicionales.style.display = 'none';
-                    mensajeError.style.backgroundColor = ' rgba(114, 4, 100, 0.678)';
+                    mensajeError.style.backgroundColor = 'rgba(33, 33, 148, 0.534)';
                     console.log(4);
                 }
             } else {

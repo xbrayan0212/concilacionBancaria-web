@@ -68,6 +68,9 @@ function validarFormulario(event) {
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
                 alert("Los datos se han guardado exitosamente.");
+                var mensajeError = document.getElementById('checkCheque');
+                mensajeError.innerHTML = '';
+                mensajeError.style.backgroundColor = 'rgba(221, 221, 221, 0';
             } else {
                 alert("Error al guardar los datos: " + response.mensaje);
             }
@@ -77,3 +80,10 @@ function validarFormulario(event) {
     xhr.send(formData);
 }
 
+
+function borrarmensajeCheque(){
+    var mensajeError = document.getElementById('checkCheque');
+                mensajeError.innerHTML = '';
+                mensajeError.style.backgroundColor = 'rgba(221, 221, 221, 0';
+
+}

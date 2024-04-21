@@ -54,7 +54,7 @@
                 </section>
             <div class="botonesCheques">
                 <button type="submit" id="guardar" class="btnCheque">Guardar</button>
-                <button type="reset" class="btnCheque">Nuevo</button>      
+                <button type="reset" class="btnCheque" onclick="borrarmensajeCheque()">Nuevo</button>      
             </div>
         </form>
     </main>
