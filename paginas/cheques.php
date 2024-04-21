@@ -15,7 +15,7 @@
 
     <main id="mainCheques">
     
-        <form id="formulario" action="../logica/guardarCheque.php" method="post"onsubmit="validarFormulario(event)" >
+        <form id="formulario" onsubmit="validarFormulario(event)" >
             <h1>Creación</h1>
                 <section class="contenedorCheque">
                     <div class="seccion">
