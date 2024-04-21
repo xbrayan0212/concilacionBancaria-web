@@ -85,6 +85,8 @@ if (isset($_POST['mes']) && isset($_POST['ano'])) {
     $resultado_anterior = obtener_ultimo_dia_mes_anterior($mes, $ano, $conn);
     $resultado_seleccionado = obtener_ultimo_dia_mes_seleccionado($mes, $ano, $conn);
 
+    $conciliacion = obtener_conciliacion($mes, $ano, $conn);
+
     echo json_encode(array(
         'success' => true,
         'ultimoDiaMesAnterior' => $resultado_anterior['ultimoDiaMesAnterior'],
@@ -92,9 +94,20 @@ if (isset($_POST['mes']) && isset($_POST['ano'])) {
         'anoAnterior' => $resultado_anterior['anoAnterior'],
         'ultimoDiaMesSeleccionado' => $resultado_seleccionado['ultimoDiaMesSeleccionado'],
         'nombreMesSeleccionado' => $resultado_seleccionado['nombreMesSeleccionado'],
-        'anoSeleccionado' => $resultado_seleccionado['anoSeleccionado']
+        'anoSeleccionado' => $resultado_seleccionado['anoSeleccionado'],
+        'conciliacion' => $conciliacion
     ));
     exit();
 }
 
+function obtener_conciliacion($mes, $ano, $conn) {
+    $sql = "SELECT * FROM conciliacion WHERE mes = $mes AND agno = $ano";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return null;
+    }
+}
 ?>

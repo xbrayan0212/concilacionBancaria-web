@@ -396,3 +396,12 @@ input:disabled{
   #saldoConciliadoLibroLabel{
     text-transform: uppercase;
   }
+  #labelsub1{
+    margin-top: 40px;
+  }
+  #saldoConciliadoBancoLabel{
+    margin-top: 40px;
+  }
+  #saldoconciliado{
+margin-left: 52%;
+  }

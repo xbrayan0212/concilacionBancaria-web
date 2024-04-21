@@ -35,7 +35,7 @@
                     <label for="chequesAnulados">Cheques Anulados</label>
                     <label for="notasCreditos">Notas de Crédito</label>
                     <label for="ajustes">Ajustes</label>
-                    <label for="subtotal1" class="label-end">SUBTOTAL</label>
+                    <label for="subtotal1" id="labelsub1" class="label-end">SUBTOTAL</label>
                 </div>
                 <div class="inputs">
                     <input disabled name="saldoLibro" id="saldo_anterior" type="text">
@@ -61,7 +61,7 @@
                 <div class="inputs">
                     <input disabled name="chequesGirados" id="menoschequesgirados" type="text">
                     <input disabled name="notasDebitos" id="menosnotasdebito" type="text">
-                    <input disabled name="ajustesMenos" id="menos" type="text">
+                    <input disabled name="ajustesMenos" id="menosajusteslibro" type="text">
                     <div class="div-subtotal">
                         <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
                         <input disabled name="mini-subtotal2" id="sub2"  type="text">
