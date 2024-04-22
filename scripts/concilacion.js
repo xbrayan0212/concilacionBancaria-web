@@ -58,6 +58,6 @@ function buscarFechaAnterior(event) {
     }
 
     // Envía datos a lógica
-    xhr.open('POST', '../logica/obtenerFecha.php', true);
+    xhr.open('POST', '../logica/logicaConcilacion.php', true);
     xhr.send(formData);
 }

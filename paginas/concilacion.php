@@ -16,7 +16,7 @@
                 <label for="mesConcilacion">Mes:</label>
                 <select name="mesConcilacion" id="mesConcilacion">
                 <option value="" disabled selected>-</option>
-                <?php include '../logica/obtenerFecha.php';obtenerMes($conn); ?>
+                <?php include '../logica/logicaConcilacion.php';obtenerMes($conn); ?>
                 </select>
                
                 <label for="anoConcilacion">Año:</label>
