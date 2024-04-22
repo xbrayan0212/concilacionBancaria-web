@@ -31,7 +31,7 @@
                             <label for="orden">Páguese a la Orden de:</label><br>
                             <select id="orden" name="ordenCheque" >
                                 <option value="">Seleccione una opción</option>
-                                <?php include '../logica/conexionConcilacion.php'; obtenerOpcionesProveedores($conn); ?>
+                                <?php include '../logica/logicaCheque.php'; obtenerOpcionesProveedores($conn); ?>
                             </select><br>
                             <label for="suma">La Suma de:</label><br>
                             <input type="text" class="input" name="suma" id="suma-cheque" onblur="mostrarMontoEnLetras(); ">

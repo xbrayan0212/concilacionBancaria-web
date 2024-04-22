@@ -13,7 +13,7 @@ function validarCheque() {
 
     // Realizar una solicitud AJAX al servidor para verificar el número de cheque
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../logica/verificarCheque.php', true);
+    xhr.open('POST', '../logica/logicaCheque.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -76,7 +76,7 @@ function validarFormulario(event) {
             }
         }
     };
-    xhr.open('POST', '../logica/guardarCheque.php', true);
+    xhr.open('POST', '../logica/logicaCheque.php', true);
     xhr.send(formData);
 }
 

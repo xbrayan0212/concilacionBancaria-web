@@ -9,7 +9,7 @@ function buscarValidarSacarCirculacion(evento) {
     }
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../logica/buscarCheque.php', true);
+    xhr.open('POST', '../logica/logicaOperaciones.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -77,7 +77,7 @@ function validarCamposSacarCirculacion(event){
            }
        };
        //envia datos a logica
-       xhr.open('POST', '../logica/insertarCirculacion.php', true);
+       xhr.open('POST', '../logica/insertarDatos.php', true);
        xhr.send(formData);
     
 }

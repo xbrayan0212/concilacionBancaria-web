@@ -23,7 +23,7 @@ function validarCamposOtrasTransacciones(event){
            }
        };
        //envia datos a logica
-       xhr.open('POST', '../logica/insertarTransaccion.php', true);
+       xhr.open('POST', '../logica/insertarDatos.php', true);
        xhr.send(formData);
     
 }
