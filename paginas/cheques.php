@@ -23,7 +23,7 @@
                         <p id="checkCheque"></p>
                             <div class="chequeNumero">
                                 <label id="labelcheque" for="nCheque">NO. de Cheque</label>
-                                <input id="cheque" name="nCheque" type="text"onblur="validarCheque(event);" >  
+                                <input id="cheque" name="nCheque" type="text"onblur="validarCheque(event);"  onkeypress="return soloNumeros(event)"  >  
                                 
                             </div>
                             <label for="fecha">Fecha</label>
@@ -34,10 +34,10 @@
                                 <?php include '../logica/logicaCheque.php'; obtenerOpcionesProveedores($conn); ?>
                             </select><br>
                             <label for="suma">La Suma de:</label><br>
-                            <input type="text" class="input" name="suma" id="suma-cheque" onblur="mostrarMontoEnLetras(); ">
+                            <input type="text" class="input" name="suma" id="suma-cheque" onblur="mostrarMontoEnLetras(); " onkeypress="return soloDecimal(event) && verificarPunto(event)">
                             <input type="text" class="input" name="sumaLetras" id="sumaletras-Cheque" disabled><br>
                             <label for="detalle">Detalle:</label><br>
-                            <input id="detalle"I class="input" name="detalles" type="text" >
+                            <input id="detalle"I class="input" name="detalles" type="text"  onkeypress="return soloLetras(event)">
                         
                     
                     </div>
@@ -58,6 +58,6 @@
             </div>
         </form>
     </main>
-
+    <script src="../scripts/script.js" defer></script>
 </body>
 </html>

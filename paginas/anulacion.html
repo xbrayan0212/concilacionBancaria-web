@@ -37,7 +37,7 @@
                             <label for="fechaAnulacion">Fecha Anulación</label>
                             <input id="fechaAnulacion" name="fechaAnulacion" class="fechaA" type="date"><br>
                             <label for="detalleAnulacion">Detalle:</label><br>
-                            <textarea name="detalleAnulacion" id="detalleAnulacion" class="detalle" cols="50"
+                            <textarea onkeypress="return soloLetras(event)" name="detalleAnulacion" id="detalleAnulacion" class="detalle" cols="50"
                                 rows="5"></textarea><br>
                             <button id="anular" >Anular</button>
                         </section>

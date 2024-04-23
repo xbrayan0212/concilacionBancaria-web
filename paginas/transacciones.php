@@ -19,7 +19,7 @@
                 <label for="fecha">Fecha</label>
                 <input id="fechaT" name='fechaT' class="fecha"  type="date">
                 <label for="monto">Monto</label>
-                <input id="montoT" name='montoT' type="text"><br>
+                <input id="montoT" name='montoT' type="text"  onkeypress="return soloDecimal(event) && verificarPunto(event)"><br>
                 <button class="botones-transaccion"  type='submit' >Grabar</button>
                 <button class="botones-transaccion" type = 'reset'>Nuevo</button>
                 </div>
