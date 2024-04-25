@@ -54,6 +54,7 @@ function buscarValidar(evento) {
 }
 //funcion para evitar enviar campos vacios en la anulacion de cheques
 function validarCamposAnulacion(event){
+    console.log("holaaa"); // Corregido de console() a console.log()
     event.preventDefault(); // Evita que se envíe el formulario automáticamente
     var fechaA = document.getElementById('fechaAnulacion').value
     var detalleA = document.getElementById('detalleAnulacion').value
@@ -70,6 +71,16 @@ function validarCamposAnulacion(event){
                var response = JSON.parse(xhr.responseText);
                if (response.success) {
                    alert("Los datos se han guardado exitosamente.");
+                   // Resetear los campos del formulario
+                document.getElementById('fechaAnulacion').value = '';
+                document.getElementById('detalleAnulacion').value = '';
+                document.getElementById('Numerocheque').value = '';
+                // Ocultar nuevamente los campos adicionales
+                document.getElementsByClassName('contenedorDemasCampos')[0].style.display = 'none';
+                var mensajeError = document.getElementById('mensajeBuscar');
+                mensajeError.innerHTML = '';
+                mensajeError.style.backgroundColor = ' rgba(0, 0, 0, 0)';
+
                } else {
                    alert("Error al guardar los datos: " + response.mensaje);
                }

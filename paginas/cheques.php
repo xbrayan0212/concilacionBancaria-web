@@ -23,7 +23,7 @@
                         <p id="checkCheque"></p>
                             <div class="chequeNumero">
                                 <label id="labelcheque" for="nCheque">NO. de Cheque</label>
-                                <input id="cheque" name="nCheque" type="text"onblur="validarCheque(event);"  onkeypress="return soloNumeros(event)"  >  
+                                <input id="cheque" name="nCheque" type="text" onblur="validarCheque(event);"  onkeypress="return soloNumeros(event)"  >  
                                 
                             </div>
                             <label for="fecha">Fecha</label>

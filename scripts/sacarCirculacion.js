@@ -71,6 +71,14 @@ function validarCamposSacarCirculacion(event){
                var response = JSON.parse(xhr.responseText);
                if (response.success) {
                    alert("Los datos se han guardado exitosamente.");
+                 // Resetear los campos del formulario
+                document.getElementById('fechaSacarCirculacion').value = '';
+                document.getElementById('NumerochequeS').value = '';
+                // Ocultar nuevamente los campos adicionales
+                document.getElementsByClassName('contenedorDemasCampos')[0].style.display = 'none';
+                var mensajeError = document.getElementById('mensajeBuscar');
+                mensajeError.innerHTML = '';
+                mensajeError.style.backgroundColor = ' rgba(0, 0, 0, 0)';
                } else {
                    alert("Error al guardar los datos: " + response.mensaje);
                }

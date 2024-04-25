@@ -1,17 +1,6 @@
 <?php
+// Incluye el archivo de conexión a la base de datos si es necesario
 include 'conexionDB.php';
-
-// Función para verificar si el número de cheque ya existe en la base de datos
-function verificarCheque($conn, $numeroCheque) {
-    $sql = "SELECT * FROM cheques WHERE numero_cheque = '$numeroCheque'";
-    $resultado = $conn->query($sql);
-
-    if ($resultado->num_rows > 0) {
-        return true; // El número de cheque ya existe en la base de datos
-    } else {
-        return false; // El número de cheque no existe en la base de datos
-    }
-}
 
 // Inicializa el array de respuesta
 $response = array();
@@ -32,28 +21,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response['success'] = false;
         $response['mensaje'] = "Por favor, complete todos los campos.";
     } else {
-        // Verificar si el número de cheque ya existe en la base de datos
-        if (verificarCheque($conn, $nCheque)) {
-            // Devuelve un mensaje de error si el número de cheque ya existe
-            $response['success'] = false;
-            $response['mensaje'] = "El número de cheque ya existe en la base de datos.";
-        } else {
-            // Inserta los datos en la tabla 'cheques'
-            $sql = "INSERT INTO cheques (numero_cheque, fecha, beneficiario, monto, descripcion, codigo_objeto1, monto_objeto1)
-                    VALUES ('$nCheque', '$fecha', '$orden', '$suma', '$detalles', '$objeto', '$monto')";
+        // Inserta los datos en la tabla 'cheques'
+        $sql = "INSERT INTO cheques (numero_cheque, fecha, beneficiario, monto, descripcion, codigo_objeto1, monto_objeto1)
+                VALUES ('$nCheque', '$fecha', '$orden', '$suma', '$detalles', '$objeto', '$monto')";
 
-            if ($conn->query($sql) === TRUE) {
-                // Devuelve un mensaje de éxito
-                $response['success'] = true;
-                $response['mensaje'] = "Los datos se han guardado exitosamente.";
-            } else {
-                // Devuelve un mensaje de error si hay un problema con la inserción de datos
-                $response['success'] = false;
-                $response['mensaje'] = "Error al insertar datos: " . $conn->error;
-            }
+        if ($conn->query($sql) === TRUE) {
+            // Devuelve un mensaje de éxito
+            $response['success'] = true;
+            $response['mensaje'] = "Los datos se han guardado exitosamente.";
+        } else {
+            // Devuelve un mensaje de error si hay un problema con la inserción de datos
+            $response['success'] = false;
+            $response['mensaje'] = "Error al insertar datos: " . $conn->error;
         }
     }
 }
+
 
 // Devuelve la respuesta como JSON
 echo json_encode($response);

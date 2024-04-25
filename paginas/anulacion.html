@@ -9,7 +9,7 @@
 
 <body>
     <main id="mainAnulacion" class="main">
-        <form  id="formularioAnulacion"  method="post" onsubmit="validarCamposAnulacion(event);">
+        <form  id="formularioAnulacion"onsubmit="validarCamposAnulacion(event);">
             <h1>Anulación de Cheques</h1>
             <section class="contenedor">
                 <div class="seccionBuscar">
@@ -39,7 +39,7 @@
                             <label for="detalleAnulacion">Detalle:</label><br>
                             <textarea onkeypress="return soloLetras(event)" name="detalleAnulacion" id="detalleAnulacion" class="detalle" cols="50"
                                 rows="5"></textarea><br>
-                            <button id="anular" >Anular</button>
+                            <button id="anular" type="submit" >Anular</button>
                         </section>
                     </div>
                 </div>
