@@ -14,7 +14,7 @@
             <section class="contenedor">
                 <div class="seccionBuscar">
                     <label for="nCheque">NO. de Cheque</label>
-                    <input id="Numerocheque" name="Numerocheque" class="cheque" type="text">
+                    <input id="Numerocheque" name="Numerocheque" class="cheque" type="text"  onkeypress="return soloNumeros(event)" >
                     <button id="btnBuscar" onclick="buscarValidar(event)">Buscar</button>
                     <p id="mensajeBuscar"></p>
                     <br>
