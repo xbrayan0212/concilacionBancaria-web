@@ -1,63 +1,97 @@
 function buscarFechaAnterior(event) {
-    event.preventDefault(); // Evita que se envíe el formulario automáticamente
+    event.preventDefault();
     var mes = document.getElementById('mesConcilacion').value;
     var year = document.getElementById('anoConcilacion').value;
-
     if (mes === '' || year === '') {
         alert('Rellene todos los campos');
         return;
     }
-
-    // Limpia el contenido de las etiquetas antes de asignarles un nuevo valor
-    document.getElementById('saldoLibro-label').textContent = "SALDO SEGÚN LIBRO AL ";
-    document.getElementById('saldoConciliadoLibroLabel').textContent = "SALDO CONCILIADO SEGÚN LIBRO AL   ";
-    document.getElementById('saldoBancoLabel').textContent = "SALDO SEGÚN BANCO AL ";
-    document.getElementById('saldoConciliadoBancoLabel').textContent = "SALDO CONCILIADO IGUAL AL BANCO AL  ";
-
-    // Si pasa la validación, enviar los datos mediante AJAX
+    limpiarEtiquetas();
     var formData = new FormData();
     formData.append('mes', mes);
     formData.append('ano', year);
-
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
-            console.log(response); // Agregamos esta línea para depurar la respuesta recibida
-            if (response.success) {
-                document.getElementById('saldoLibro-label').textContent += response.ultimoDiaMesAnterior + " DE " + response.nombreMesAnterior + " DE " + response.anoAnterior;
+            if (response.success && response.conciliacion) {
                 var fechaSeleccionada = response.ultimoDiaMesSeleccionado + " de " + response.nombreMesSeleccionado + " de " + response.anoSeleccionado;
-                document.getElementById('saldoConciliadoLibroLabel').textContent += fechaSeleccionada;
-                document.getElementById('saldoBancoLabel').textContent += fechaSeleccionada;
-                document.getElementById('saldoConciliadoBancoLabel').textContent += fechaSeleccionada;
-
-                // Rellenar campos de conciliación
-                var conciliacion = response.conciliacion;
-                document.getElementById('saldo_anterior').value = conciliacion ? conciliacion.saldo_anterior : '';
-                document.getElementById('masdepositos').value = conciliacion ? conciliacion.masdepositos : '';
-                document.getElementById('maschequesanulados').value = conciliacion ? conciliacion.maschequesanulados : '';
-                document.getElementById('masnotascredito').value = conciliacion ? conciliacion.masnotascredito : '';
-                document.getElementById('masajusteslibro').value = conciliacion ? conciliacion.masajusteslibro : '';
-                document.getElementById('sub1').value = conciliacion ? conciliacion.sub1 : '';
-                document.getElementById('subtotal1').value = conciliacion ? conciliacion.subtotal1 : '';
-                document.getElementById('menoschequesgirados').value = conciliacion ? conciliacion.menoschequesgirados : '';
-                document.getElementById('menosnotasdebito').value = conciliacion ? conciliacion.menosnotasdebito : '';
-                document.getElementById('menosajusteslibro').value = conciliacion ? conciliacion.menosajusteslibro : '';
-                document.getElementById('sub2').value = conciliacion ? conciliacion.sub2 : '';
-                document.getElementById('saldolibros').value = conciliacion ? conciliacion.saldolibros : '';
-                document.getElementById('saldobanco').value = conciliacion ? conciliacion.saldobanco : '';
-                document.getElementById('masdepositostransito').value = conciliacion ? conciliacion.masdepositostransito : '';
-                document.getElementById('menoschequescirculacion').value = conciliacion ? conciliacion.menoschequescirculacion : '';
-                document.getElementById('masajutesbanco').value = conciliacion ? conciliacion.masajustesbanco : '';
-                document.getElementById('sub3').value = conciliacion ? conciliacion.sub3 : '';
-                document.getElementById('saldoconciliado').value = conciliacion ? conciliacion.saldo_conciliado : '';
+                llenarCamposConciliacion(response.conciliacion);
+                if (response.conciliacion.mesAnteriorConciliado) {
+                    alert('Mes anterior conciliado');
+                    obtenerCamposConciliacion(response.conciliacionTransacciones);
+                    obtenerCamposConciliacionCheques(response.conciliacionCheques);
+                    sumaSubtotales();
+                } else {
+                    alert('Mes anterior No Conciliado');
+                }
+                actualizarEtiquetas(response.ultimoDiaMesAnterior, response.nombreMesAnterior, response.anoAnterior, fechaSeleccionada);
             } else {
                 alert("Error al obtener el último día del mes anterior.");
             }
         }
     }
-
-    // Envía datos a lógica
     xhr.open('POST', '../logica/logicaConcilacion.php', true);
     xhr.send(formData);
 }
+
+function limpiarEtiquetas() {
+    document.getElementById('saldoLibro-label').textContent = "SALDO SEGÚN LIBRO AL ";
+    document.getElementById('saldoConciliadoLibroLabel').textContent = "SALDO CONCILIADO SEGÚN LIBRO AL   ";
+    document.getElementById('saldoBancoLabel').textContent = "SALDO SEGÚN BANCO AL ";
+    document.getElementById('saldoConciliadoBancoLabel').textContent = "SALDO CONCILIADO IGUAL AL BANCO AL  ";
+}
+
+function actualizarEtiquetas(ultimoDiaMesAnterior, nombreMesAnterior, anoAnterior, fechaSeleccionada) {
+    document.getElementById('saldoLibro-label').textContent += ultimoDiaMesAnterior + " DE " + nombreMesAnterior + " DE " + anoAnterior;
+    document.getElementById('saldoConciliadoLibroLabel').textContent += fechaSeleccionada;
+    document.getElementById('saldoBancoLabel').textContent += fechaSeleccionada;
+    document.getElementById('saldoConciliadoBancoLabel').textContent += fechaSeleccionada;
+}
+
+function llenarCamposConciliacion(conciliacion) {
+    console.log("Datos de conciliacionTransacciones:", conciliacion);
+    var fields = ['saldo_anterior', 'masdepositos', 'maschequesanulados', 'masnotascredito', 'masajusteslibro', 'sub1', 'subtotal1', 'menoschequesgirados', 'menosnotasdebito', 'menosajusteslibro', 'sub2', 'saldolibros', 'saldobanco', 'masdepositostransito', 'menoschequescirculacion', 'masajustesbanco', 'sub3', 'saldo_conciliado'];
+    fields.forEach(function(field) {
+        document.getElementById(field).value = conciliacion ? conciliacion[field] : '';
+    });
+}
+
+function obtenerCamposConciliacion(conciliacionTransacciones) {
+    console.log("Datos de conciliacionTransacciones:", conciliacionTransacciones);
+    var fields = ['masdepositos', 'masnotascredito', 'masajusteslibro', 'menosnotasdebito', 'menosajusteslibro', 'masdepositostransito', 'masajustesbanco'];
+    fields.forEach(function(field) {
+        document.getElementById(field).value = conciliacionTransacciones && conciliacionTransacciones.transacciones ? conciliacionTransacciones.transacciones[field] : '';
+    });
+}
+
+function obtenerCamposConciliacionCheques(conciliacionCheques) {
+    console.log("Datos de conciliacionCheques:", conciliacionCheques); 
+    var fields = ['maschequesanulados', 'menoschequesgirados', 'menoschequescirculacion'];
+    fields.forEach(function(field) {
+        document.getElementById(field).value = conciliacionCheques && conciliacionCheques.cheques ? conciliacionCheques.cheques[field] : '';
+    });
+}
+function sumaSubtotales() {
+    // Obtener los valores de las transacciones y cheques
+    var masdepositos = parseFloat(document.getElementById('masdepositos').value) || 0;
+    var chequesanulados = parseFloat(document.getElementById('maschequesanulados').value) || 0;
+    var notascredito = parseFloat(document.getElementById('masnotascredito').value) || 0;
+    var masajusteslibros = parseFloat(document.getElementById('masajusteslibro').value) || 0;
+    var chequesgirados = parseFloat(document.getElementById('menoschequesgirados').value) || 0;
+    var menosnotasdebitros = parseFloat(document.getElementById('menosnotasdebito').value) || 0;
+    var masdepositostransito = parseFloat(document.getElementById('masdepositostransito').value) || 0;
+    var menoschequescirculacion = parseFloat(document.getElementById('menoschequescirculacion').value) || 0;
+    var masajustesbanco = parseFloat(document.getElementById('masajustesbanco').value) || 0;
+
+    // Calcular subtotales
+    var sub1 = masdepositos - chequesanulados + notascredito + masajusteslibros;
+    var sub2 = chequesgirados - menosnotasdebitros;
+    var sub3 = masdepositostransito - menoschequescirculacion + masajustesbanco;
+
+    // Mostrar los resultados en los campos correspondientes
+    document.getElementById('sub1').value = sub1.toFixed(2);
+    document.getElementById('sub2').value = sub2.toFixed(2);
+    document.getElementById('sub3').value = sub3.toFixed(2);
+}
+

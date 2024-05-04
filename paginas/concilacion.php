@@ -82,12 +82,12 @@
                 <input disabled name="saldoBanco" id="saldobanco" type="text">
                 <input disabled name="depositoTransito" id="masdepositostransito" type="text">
                 <input disabled name="ajustesMenos" id="menoschequescirculacion" type="text">
-                <input disabled type="text" id="masajutesbanco">
+                <input disabled type="text" id="masajustesbanco">
                 <div class="div-subtotal">
                     <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
                     <input disabled name="mini-subtotal2" id="sub3" type="text">
                 </div>
-                <input disabled  name="subtotal2" id="saldoconciliado" class="input-left" type="text">
+                <input disabled  name="subtotal2" id="saldo_conciliado" class="input-left" type="text">
             </div>
         </section>
         <hr class="divisor">
