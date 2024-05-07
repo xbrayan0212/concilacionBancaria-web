@@ -26,6 +26,9 @@ function buscarFechaAnterior(event) {
                     alert('Mes anterior No Conciliado');
                 }
                 actualizarEtiquetas(response.ultimoDiaMesAnterior, response.nombreMesAnterior, response.anoAnterior, fechaSeleccionada);
+                 // Nuevo código para asignar el saldo conciliado del mes anterior al campo "saldo_anterior"
+                 document.getElementById('saldo_anterior').value = response.conciliacion.saldo_conciliado_mes_anterior || 0;
+
             } else {
                 alert("Error al obtener el último día del mes anterior.");
             }
@@ -79,19 +82,27 @@ function sumaSubtotales() {
     var notascredito = parseFloat(document.getElementById('masnotascredito').value) || 0;
     var masajusteslibros = parseFloat(document.getElementById('masajusteslibro').value) || 0;
     var chequesgirados = parseFloat(document.getElementById('menoschequesgirados').value) || 0;
-    var menosnotasdebitros = parseFloat(document.getElementById('menosnotasdebito').value) || 0;
+    var menosnotasdebitos = parseFloat(document.getElementById('menosnotasdebito').value) || 0;
     var masdepositostransito = parseFloat(document.getElementById('masdepositostransito').value) || 0;
     var menoschequescirculacion = parseFloat(document.getElementById('menoschequescirculacion').value) || 0;
     var masajustesbanco = parseFloat(document.getElementById('masajustesbanco').value) || 0;
+    var saldo_anterior = parseFloat(document.getElementById('saldo_anterior').value) || 0;
+    var saldo_conciliado = parseFloat(document.getElementById('saldo_conciliado').value) || 0;
 
     // Calcular subtotales
     var sub1 = masdepositos - chequesanulados + notascredito + masajusteslibros;
-    var sub2 = chequesgirados - menosnotasdebitros;
+    var sub2 = chequesgirados - menosnotasdebitos;
     var sub3 = masdepositostransito - menoschequescirculacion + masajustesbanco;
-
+    var total1= saldo_anterior + sub1;
+    var total2 = total1 + sub2;
+    var total3 = total2 + saldo_conciliado;
     // Mostrar los resultados en los campos correspondientes
     document.getElementById('sub1').value = sub1.toFixed(2);
     document.getElementById('sub2').value = sub2.toFixed(2);
     document.getElementById('sub3').value = sub3.toFixed(2);
+     document.getElementById('subtotal1').value = total1.toFixed(2);
+    document.getElementById('saldolibros').value = total2.toFixed(2);
+    document.getElementById('saldo_conciliado').value = total3.toFixed(2);
+
 }
 

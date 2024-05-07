@@ -37,16 +37,16 @@
                     <label for="subtotal1" id="labelsub1" class="label-end">SUBTOTAL</label>
                 </div>
                 <div class="inputs">
-                    <input disabled name="saldoLibro" id="saldo_anterior" type="text">
-                    <input disabled name="masdeposito" id="masdepositos" type="text">
-                    <input disabled name="chequesAnulados" id="maschequesanulados" type="text">
-                    <input disabled name="masnotascredito" id="masnotascredito" type="text">
-                    <input disabled name="ajustes" id="masajusteslibro" type="text">
+                    <input  name="saldoLibro" id="saldo_anterior" type="text">
+                    <input  name="masdeposito" id="masdepositos" type="text">
+                    <input  name="chequesAnulados" id="maschequesanulados" type="text">
+                    <input  name="masnotascredito" id="masnotascredito" type="text">
+                    <input  name="ajustes" id="masajusteslibro" type="text">
                     <div class="div-subtotal">
                         <label for="mini-subtotal1" class="label-subtotal">Subtotal:</label>
-                        <input disabled name="sub1" id="sub1"  type="text">
+                        <input  name="sub1" id="sub1"  type="text">
                     </div>
-                    <input disabled  name="subtotal" id="subtotal1"  class="input-left" type="text">
+                    <input   name="subtotal" id="subtotal1"  class="input-left" type="text">
                 </div>
             </section>
             <!--segun parte libro-->
@@ -58,14 +58,14 @@
                     <label for="saldoConciliado" id="saldoConciliadoLibroLabel" class="label-end">SALDO CONCILIADO SEGÚN EL LIBRO AL</label>
                 </div>
                 <div class="inputs">
-                    <input disabled name="chequesGirados" id="menoschequesgirados" type="text">
-                    <input disabled name="notasDebitos" id="menosnotasdebito" type="text">
-                    <input disabled name="ajustesMenos" id="menosajusteslibro" type="text">
+                    <input  name="chequesGirados" id="menoschequesgirados" type="text">
+                    <input  name="notasDebitos" id="menosnotasdebito" type="text">
+                    <input  name="ajustesMenos" id="menosajusteslibro" type="text">
                     <div class="div-subtotal">
                         <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
-                        <input disabled name="mini-subtotal2" id="sub2"  type="text">
+                        <input  name="mini-subtotal2" id="sub2"  type="text">
                     </div>
-                    <input disabled  name="subtotal2" id="saldolibros" class="input-left" type="text">
+                    <input  name="subtotal2" id="saldolibros" class="input-left" type="text">
                 </div>
             </section>
             <hr class="divisor">
@@ -79,15 +79,15 @@
                 <label for="saldoBanco" id="saldoConciliadoBancoLabel" class="label-end">SALDO CONCILIADO IGUAL A BANCO AL</label>
             </div>
             <div class="inputs">
-                <input disabled name="saldoBanco" id="saldobanco" type="text">
-                <input disabled name="depositoTransito" id="masdepositostransito" type="text">
-                <input disabled name="ajustesMenos" id="menoschequescirculacion" type="text">
-                <input disabled type="text" id="masajustesbanco">
+                <input  name="saldoBanco" id="saldobanco" type="text">
+                <input  name="depositoTransito" id="masdepositostransito" type="text">
+                <input  name="ajustesMenos" id="menoschequescirculacion" type="text">
+                <input  type="text" id="masajustesbanco">
                 <div class="div-subtotal">
                     <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
                     <input disabled name="mini-subtotal2" id="sub3" type="text">
                 </div>
-                <input disabled  name="subtotal2" id="saldo_conciliado" class="input-left" type="text">
+                <input   name="subtotal2" id="saldo_conciliado" class="input-left" type="text">
             </div>
         </section>
         <hr class="divisor">

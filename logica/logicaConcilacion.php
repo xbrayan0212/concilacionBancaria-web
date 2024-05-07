@@ -110,8 +110,10 @@ function obtener_conciliacion($mes, $ano, $conn) {
         $result_mes_anterior = $conn->query($sql_mes_anterior);
         if ($result_mes_anterior && $result_mes_anterior->num_rows > 0) {
             realizarConciliacion($mes, $ano, $conn);
+            $row_mes_anterior = $result_mes_anterior->fetch_assoc();
             return array(
                 'mesAnteriorConciliado' => true,
+                'saldo_conciliado_mes_anterior' => $row_mes_anterior['saldo_conciliado']
             );
         } else {
             $resultado_mes_anterior = obtener_ultimo_dia_mes_anterior($mes, $ano, $conn);
