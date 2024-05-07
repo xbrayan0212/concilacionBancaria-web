@@ -65,6 +65,7 @@ function obtener_ultimo_dia_mes_anterior($mes, $ano, $conn) {
         $row = $result->fetch_assoc();
         $ultimo_dia = $row['dia'];
         $nombre_mes = $row['nombre_mes'];
+        
     } else {
         $ultimo_dia = '';
         $nombre_mes = '';
@@ -194,5 +195,47 @@ function realizarConciliacionCheques($mes, $ano, $conn) {
     return array(
         'cheques' => $totalesCheques,
     );
+}
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   /* $fechaAnterior obtener_ultimo_dia_mes_anterior($mes, $ano, $conn);
+    $dia = ;*/
+    $masdepositos = $_POST['masdepositos'];
+    $maschequesanulados = $_POST['maschequesanulados'];
+    $masnotascredito = $_POST['masnotascredito'];
+    $masajusteslibro = $_POST['masajusteslibro'];
+    $sub1 = $_POST['sub1'];
+    $subtotal1 = $_POST['subtotal1'];
+    $menoschequesgirados = $_POST['menoschequesgirados'];
+    $menosnotasdebito = $_POST['menosnotasdebito'];
+    $menosajusteslibro = $_POST['menosajusteslibro'];
+    $sub2 = $_POST['sub2'];
+    $saldolibros = $_POST['saldolibros'];
+    $saldobanco = $_POST['saldobanco'];
+    $masdepositostransito = $_POST['masdepositostransito'];
+    $menoschequescirculacion = $_POST['menoschequescirculacion'];
+    $masajustesbanco = $_POST['masajustesbanco'];
+    $sub3 = $_POST['sub3'];
+    $saldo_conciliado = $_POST['saldo_conciliado'];
+
+        // Inserta los datos en la tabla 'conciliacion'
+        $sql = "INSERT INTO conciliacion ( masdepositos, maschequesanulados, masnotascredito, masajusteslibro, sub1, subtotal1, menoschequesgirados, menosnotasdebito, menosajusteslibro, sub2, saldolibros, saldobanco, masdepositostransito, menoschequescirculacion, masajustesbanco, sub3, saldo_conciliado)
+                VALUES ('$masdepositos', '$maschequesanulados', '$masnotascredito', '$masajusteslibro', '$sub1', '$subtotal1', '$menoschequesgirados', '$menosnotasdebito', '$menosajusteslibro', '$sub2', '$saldolibros', '$saldobanco', '$masdepositostransito', '$menoschequescirculacion', '$masajustesbanco', '$sub3', '$saldo_conciliado')";
+
+        if ($conn->query($sql) === TRUE) {
+            // Devuelve un mensaje de éxito
+            $response['ola'] = true;
+            $response['mensaje'] = "Los datos se han guardado exitosamente.";
+        } else {
+            // Devuelve un mensaje de error si hay un problema con la inserción de datos
+            $response['ola'] = false;
+            $response['mensaje'] = "Error al insertar datos: " . $conn->error;
+        }
+
+    // Convierte el array de respuesta a JSON y lo imprime
+    echo json_encode($response);
 }
 ?>

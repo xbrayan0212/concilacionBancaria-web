@@ -21,13 +21,15 @@ function buscarFechaAnterior(event) {
                     alert('Mes anterior conciliado');
                     obtenerCamposConciliacion(response.conciliacionTransacciones);
                     obtenerCamposConciliacionCheques(response.conciliacionCheques);
+                    document.getElementById('saldo_anterior').value = response.conciliacion.saldo_conciliado_mes_anterior || 0;
+                    document.getElementById('saldobanco').value = 0;
                     sumaSubtotales();
                 } else {
                     alert('Mes anterior No Conciliado');
                 }
                 actualizarEtiquetas(response.ultimoDiaMesAnterior, response.nombreMesAnterior, response.anoAnterior, fechaSeleccionada);
                  // Nuevo código para asignar el saldo conciliado del mes anterior al campo "saldo_anterior"
-                 document.getElementById('saldo_anterior').value = response.conciliacion.saldo_conciliado_mes_anterior || 0;
+                 
 
             } else {
                 alert("Error al obtener el último día del mes anterior.");
@@ -105,4 +107,31 @@ function sumaSubtotales() {
     document.getElementById('saldo_conciliado').value = total3.toFixed(2);
 
 }
+function guardarConciliacion(event) {
+    event.preventDefault();
 
+    // Obtener los valores del formulario
+    var formData = new FormData(document.getElementById('formularioDatosConcilacion'));
+    console.log(formData);
+    var xhr = new XMLHttpRequest();
+    console.log(sub3)
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                console.log(response.ola)
+                if (response.ola) {
+                    alert(response.mensaje);
+                    alert('hola')
+                } else {
+                    alert(response.mensaje);
+                }
+            } else {
+                alert('Error al intentar guardar la conciliación. Inténtalo de nuevo más tarde.');
+            }
+        }
+    };
+
+    xhr.open('POST', '../logica/logicaConcilacion.php', true);
+    xhr.send(formData);
+}

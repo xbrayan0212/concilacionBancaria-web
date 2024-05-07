@@ -534,6 +534,7 @@ input:disabled{
 #saldobanco{
     background-color: white;
     margin-left: 52%;
+    pointer-events: all;
   }
   #saldo_anterior{
     margin-left: 52%;
