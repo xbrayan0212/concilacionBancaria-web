@@ -110,19 +110,25 @@ function sumaSubtotales() {
 function guardarConciliacion(event) {
     event.preventDefault();
 
+    var mes = document.getElementById('mesConcilacion').value;
+    var year = document.getElementById('anoConcilacion').value;
+ 
     // Obtener los valores del formulario
     var formData = new FormData(document.getElementById('formularioDatosConcilacion'));
-    console.log(formData);
     var xhr = new XMLHttpRequest();
-    console.log(sub3)
+    // Agregar mes y año al formData
+    formData.append('mesConcilacion', mes);
+    formData.append('anoConcilacion', year);
+    
+    // Si 'sub3' representa un campo en el formulario, puedes obtener su valor de la siguiente manera:
+    var sub3 = document.getElementById('sub3').value;
+    
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log(response.ola)
                 if (response.ola) {
                     alert(response.mensaje);
-                    alert('hola')
                 } else {
                     alert(response.mensaje);
                 }
@@ -135,3 +141,4 @@ function guardarConciliacion(event) {
     xhr.open('POST', '../logica/logicaConcilacion.php', true);
     xhr.send(formData);
 }
+

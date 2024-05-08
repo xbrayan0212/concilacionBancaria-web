@@ -65,7 +65,6 @@ function obtener_ultimo_dia_mes_anterior($mes, $ano, $conn) {
         $row = $result->fetch_assoc();
         $ultimo_dia = $row['dia'];
         $nombre_mes = $row['nombre_mes'];
-        
     } else {
         $ultimo_dia = '';
         $nombre_mes = '';
@@ -73,7 +72,8 @@ function obtener_ultimo_dia_mes_anterior($mes, $ano, $conn) {
     return array(
         'ultimoDiaMesAnterior' => $ultimo_dia,
         'nombreMesAnterior' => $nombre_mes,
-        'anoAnterior' => $ano_anterior
+        'anoAnterior' => $ano_anterior,
+        'mesAnterior' => $mes_anterior
     );
 }
 
@@ -91,7 +91,8 @@ function obtener_ultimo_dia_mes_seleccionado($mes, $ano, $conn) {
     return array(
         'ultimoDiaMesSeleccionado' => $ultimo_dia,
         'nombreMesSeleccionado' => $nombre_mes,
-        'anoSeleccionado' => $ano
+        'anoSeleccionado' => $ano,
+        'mesSeleccionado' => $mes
     );
 }
 
@@ -201,8 +202,8 @@ function realizarConciliacionCheques($mes, $ano, $conn) {
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   /* $fechaAnterior obtener_ultimo_dia_mes_anterior($mes, $ano, $conn);
-    $dia = ;*/
+    $mes = $_POST['mesConcilacion'];
+    $ano = $_POST['anoConcilacion'];
     $masdepositos = $_POST['masdepositos'];
     $maschequesanulados = $_POST['maschequesanulados'];
     $masnotascredito = $_POST['masnotascredito'];
@@ -220,10 +221,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $masajustesbanco = $_POST['masajustesbanco'];
     $sub3 = $_POST['sub3'];
     $saldo_conciliado = $_POST['saldo_conciliado'];
+    $fechaAnterior = obtener_ultimo_dia_mes_anterior($mes, $ano, $conn) ;
+    $fechaActual = obtener_ultimo_dia_mes_seleccionado($mes, $ano, $conn);
+    $dia_actual = $fechaActual["ultimoDiaMesSeleccionado"];
+    $mes_actual = $fechaActual["mesSeleccionado"];
+    $ano_actual = $fechaActual["anoSeleccionado"];
+    $dia_anterior = $fechaAnterior["ultimoDiaMesAnterior"];
+    $mes_anterior =$fechaAnterior["mesAnterior"];
+    $ano_anterior = $fechaAnterior["anoAnterior"];
+    $SaldoAnterior_Conciliado = obtener_conciliacion($mes, $ano, $conn);
+    $saldo_anterior = $SaldoAnterior_Conciliado['saldo_conciliado_mes_anterior'];
+
+
+
 
         // Inserta los datos en la tabla 'conciliacion'
-        $sql = "INSERT INTO conciliacion ( masdepositos, maschequesanulados, masnotascredito, masajusteslibro, sub1, subtotal1, menoschequesgirados, menosnotasdebito, menosajusteslibro, sub2, saldolibros, saldobanco, masdepositostransito, menoschequescirculacion, masajustesbanco, sub3, saldo_conciliado)
-                VALUES ('$masdepositos', '$maschequesanulados', '$masnotascredito', '$masajusteslibro', '$sub1', '$subtotal1', '$menoschequesgirados', '$menosnotasdebito', '$menosajusteslibro', '$sub2', '$saldolibros', '$saldobanco', '$masdepositostransito', '$menoschequescirculacion', '$masajustesbanco', '$sub3', '$saldo_conciliado')";
+        $sql = "INSERT INTO conciliacion (dia, mes, agno, dia_anterior, agno_anterior,mes_anterior,saldo_anterior, masdepositos, maschequesanulados, masnotascredito, masajusteslibro, sub1, subtotal1, menoschequesgirados, menosnotasdebito, menosajusteslibro, sub2, saldolibros, saldobanco, masdepositostransito, menoschequescirculacion, masajustesbanco, sub3, saldo_conciliado)
+        VALUES ('$dia_actual', '$mes_actual', '$ano_actual', '$dia_anterior', '$ano_anterior', '$mes_anterior', '$saldo_anterior', '$masdepositos', '$maschequesanulados', '$masnotascredito', '$masajusteslibro', '$sub1', '$subtotal1', '$menoschequesgirados', '$menosnotasdebito', '$menosajusteslibro', '$sub2', '$saldolibros', '$saldobanco', '$masdepositostransito', '$menoschequescirculacion', '$masajustesbanco', '$sub3', '$saldo_conciliado')";
+
+// Resto del código sin cambios
 
         if ($conn->query($sql) === TRUE) {
             // Devuelve un mensaje de éxito
@@ -238,4 +254,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Convierte el array de respuesta a JSON y lo imprime
     echo json_encode($response);
 }
-?>
