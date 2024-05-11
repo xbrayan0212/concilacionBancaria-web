@@ -38,16 +38,16 @@
                     <label for="subtotal1" id="labelsub1" class="label-end">SUBTOTAL</label>
                 </div>
                 <div class="inputs">
-                    <input name="saldo_anterior" id="saldo_anterior" type="text">
-                    <input name="masdepositos" id="masdepositos" type="text">
-                    <input name="maschequesanulados" id="maschequesanulados" type="text">
-                    <input name="masnotascredito" id="masnotascredito" type="text">
-                    <input name="masajusteslibro" id="masajusteslibro" type="text">
+                    <input readonly name="saldo_anterior" id="saldo_anterior" type="text">
+                    <input readonly name="masdepositos" id="masdepositos" type="text">
+                    <input readonly name="maschequesanulados" id="maschequesanulados" type="text">
+                    <input readonly name="masnotascredito" id="masnotascredito" type="text">
+                    <input readonly name="masajusteslibro" id="masajusteslibro" type="text">
                     <div class="div-subtotal">
                         <label for="mini-subtotal1" class="label-subtotal">Subtotal:</label>
-                        <input  name="sub1" id="sub1"  type="text">
+                        <input readonly  name="sub1" id="sub1"  type="text">
                     </div>
-                    <input   name="subtotal1" id="subtotal1"  class="input-left" type="text">
+                    <input  readonly  name="subtotal1" id="subtotal1"  class="input-left" type="text">
                 </div>
             </section>
             <!--segun parte libro-->
@@ -59,14 +59,14 @@
                     <label for="saldoConciliado" id="saldoConciliadoLibroLabel" class="label-end">SALDO CONCILIADO SEGÚN EL LIBRO AL</label>
                 </div>
                 <div class="inputs">
-                    <input name="menoschequesgirados" id="menoschequesgirados" type="text">
-                    <input name="menosnotasdebito" id="menosnotasdebito" type="text">
-                    <input name="menosajusteslibro" id="menosajusteslibro" type="text">
+                    <input readonly  name="menoschequesgirados" id="menoschequesgirados" type="text">
+                    <input readonly name="menosnotasdebito" id="menosnotasdebito" type="text">
+                    <input readonly name="menosajusteslibro" id="menosajusteslibro" type="text">
                     <div class="div-subtotal">
                         <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
-                        <input  name="sub2" id="sub2"  type="text">
+                        <input readonly  name="sub2" id="sub2"  type="text">
                     </div>
-                    <input  name="saldolibros" id="saldolibros" class="input-left" type="text">
+                    <input readonly  name="saldolibros" id="saldolibros" class="input-left" type="text">
                 </div>
             </section>
             <hr class="divisor">
@@ -80,20 +80,20 @@
                 <label for="saldoBanco" id="saldoConciliadoBancoLabel" class="label-end">SALDO CONCILIADO IGUAL A BANCO AL</label>
             </div>
             <div class="inputs">
-                    <input name="saldobanco" id="saldobanco" type="text">
-                    <input name="masdepositostransito" id="masdepositostransito" type="text">
-                    <input name="menoschequescirculacion" id="menoschequescirculacion" type="text">
-                    <input name="masajustesbanco" id="masajustesbanco" type="text">
+                    <input   name="saldobanco" id="saldobanco" type="text">
+                    <input readonly name="masdepositostransito" id="masdepositostransito" type="text">
+                    <input readonly name="menoschequescirculacion" id="menoschequescirculacion" type="text">
+                    <input readonly name="masajustesbanco" id="masajustesbanco" type="text">
                 <div class="div-subtotal">
                     <label for="mini-subtotal2" class="label-subtotal">Subtotal:</label>
-                    <input name="sub3" id="sub3" type="text">
+                    <input readonly name="sub3" id="sub3" type="text">
                 </div>
-                <input   name="saldo_conciliado" id="saldo_conciliado" class="input-left" type="text">
+                <input readonly  name="saldo_conciliado" id="saldo_conciliado" class="input-left" type="text">
             </div>
         </section>
         <hr class="divisor">
         <Section class="botones">
-            <button type="submit">Grabar</button>
+            <button disabled type="submit" id="botongrabar">Grabar</button>
             <button type="reset">Nuevo</button>
         </Section>
         </form>

@@ -443,7 +443,7 @@ input:disabled{
     margin-left: 0%;
     background-color: rgba(156, 152, 152, 0.247);
     border-radius: 0;
-    pointer-events: none;
+   
     
 }
 .div-subtotal{
@@ -553,4 +553,7 @@ input:disabled{
   }
   #saldo_conciliado{
 margin-left: 52%;
+  }
+  #botongrabar{
+    background-color: gray;
   }

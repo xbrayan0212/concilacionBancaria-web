@@ -82,6 +82,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+// Verifica si se reciben los datos esperados del formulario
+if (isset($_FILES['archivo'])) {
+    // Manejar el archivo subido
+    $ruta = $_FILES['archivo']['tmp_name'];
+    $file = fopen($ruta, "r");
+
+    if ($file) {
+        while (($line = fgets($file)) !== false) {
+            // Dividir la línea en columnas
+            $data = preg_split("/[\t]+/", $line);
+
+            // Verificar si hay suficientes columnas
+            if (count($data) >= 6) {
+                $codigo = trim($data[0]);
+                
+                // Verificar si la fecha y la hora están juntas sin tabulaciones
+                if (strpos($data[1], ' ') !== false) {
+                    // Si están juntas, separar la fecha y la hora
+                    list($fecha, $hora) = explode(' ', $data[1], 2);
+                } else {
+                    // Si no están juntas, usar los valores por separado
+                    $fecha = trim($data[1]);
+                    $hora = trim($data[2]);
+                }
+
+                $filler1 = trim($data[2]);
+                $filler2 = trim($data[3]);
+                $filler3 = trim($data[4]);
+                $filler4 = trim($data[5]);
+    
+                // Consulta preparada para la inserción de datos
+                $stmt = $conn->prepare("INSERT INTO datos (codigo, fecha, hora, filler1, filler2, filler3, filler4) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssssss", $codigo, $fecha, $hora, $filler1, $filler2, $filler3, $filler4);
+                if ($stmt->execute()) {
+                    // Éxito
+                    $response['success'] = true;
+                    $response['mensaje'] = "Los datos se han guardado exitosamente.";
+                } else {
+                    // Error en la inserción de datos
+                    $response['success'] = false;
+                    $response['mensaje'] = "Error al insertar datos: " . $conn->error;
+                }
+            } else {
+                // No hay suficientes columnas en la línea
+                $response['success'] = false;
+                $response['mensaje'] = "Error: El formato de la línea no es válido. Línea: $line";
+            
+            }
+        }
+        // Cerrar el archivo después de terminar de procesarlo
+        fclose($file);
+    } else {
+        // Error al abrir el archivo
+        $response['success'] = false;
+        $response['mensaje'] = "Error: No se pudo abrir el archivo.";
+    }
+}
+
+
 // Cierra la conexión a la base de datos si es necesario
 $conn->close();
 

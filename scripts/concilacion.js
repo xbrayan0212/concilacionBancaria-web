@@ -18,14 +18,27 @@ function buscarFechaAnterior(event) {
                 var fechaSeleccionada = response.ultimoDiaMesSeleccionado + " de " + response.nombreMesSeleccionado + " de " + response.anoSeleccionado;
                 llenarCamposConciliacion(response.conciliacion);
                 if (response.conciliacion.mesAnteriorConciliado) {
-                    alert('Mes anterior conciliado');
                     obtenerCamposConciliacion(response.conciliacionTransacciones);
                     obtenerCamposConciliacionCheques(response.conciliacionCheques);
                     document.getElementById('saldo_anterior').value = response.conciliacion.saldo_conciliado_mes_anterior || 0;
                     document.getElementById('saldobanco').value = 0;
                     sumaSubtotales();
+                    if(document.getElementById(saldo_conciliado) === document.getElementById(saldobanco)){
+                        var boton =document.getElementById('botongrabar'); 
+                        boton.disabled = false;
+                        boton.style.backgroundColor = "rgb(5, 5, 167)";
+                    }
                 } else {
-                    alert('Mes anterior No Conciliado');
+                    var boton =document.getElementById('botongrabar'); 
+                    boton.disabled = true;
+                    boton.style.backgroundColor = "gray";
+                    var fields = ['saldo_anterior', 'masdepositos', 'maschequesanulados', 'masnotascredito', 'masajusteslibro', 'sub1', 'subtotal1', 'menoschequesgirados', 'menosnotasdebito', 'menosajusteslibro', 'sub2', 'saldolibros', 'saldobanco', 'masdepositostransito', 'menoschequescirculacion', 'masajustesbanco', 'sub3', 'saldo_conciliado'];
+                    fields.forEach(function(field) {
+                        console.log(fields)
+                        if (document.getElementById(field) === undefined) {
+                            document.getElementById(field).value = 0;
+                        }
+                    });
                 }
                 actualizarEtiquetas(response.ultimoDiaMesAnterior, response.nombreMesAnterior, response.anoAnterior, fechaSeleccionada);
                  // Nuevo código para asignar el saldo conciliado del mes anterior al campo "saldo_anterior"
