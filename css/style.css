@@ -87,7 +87,7 @@ nav{
 
 
 /*compus*/
-@media (min-width: 1200px) {
+@media (min-width: 0px) {
 
     .contenedor-logo{
         background-color: var(--color1);

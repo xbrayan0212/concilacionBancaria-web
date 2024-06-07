@@ -116,7 +116,6 @@ if (isset($_FILES['archivo'])) {
                 $stmt = $conn->prepare("INSERT INTO datos (codigo, fecha, hora, filler1, filler2, filler3, filler4) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("sssssss", $codigo, $fecha, $hora, $filler1, $filler2, $filler3, $filler4);
                 if ($stmt->execute()) {
-                    // Éxito
                     $response['success'] = true;
                     $response['mensaje'] = "Los datos se han guardado exitosamente.";
                 } else {

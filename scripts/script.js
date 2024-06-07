@@ -1,18 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", function() {
-    var menuBtn = document.getElementById("guardar");
-    var contenedorLogo = document.querySelector("nav");
-    var botonActivo = true;
-
-    menuBtn.addEventListener("click", function() {
-        botonActivo = !botonActivo;
-
-        if (botonActivo) {
-            contenedorLogo.style.marginLeft = "100%";
-        } else {
-            contenedorLogo.style.marginLeft = "0";
-        }
-    });
-});*/
 
 function loadPage(page) {
     fetch(page)
