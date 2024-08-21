@@ -28,6 +28,27 @@ Navega por las diferentes páginas del sistema para gestionar cheques, transacci
 - **Navegador Web** compatible con HTML5, CSS3 y JavaScript.
 
 
+#Imagenes de Referencia 
+## Login
+![image](https://github.com/user-attachments/assets/702ddbd2-7041-4385-9858-849833f93876)
+## Pagina Inicial
+![image](https://github.com/user-attachments/assets/ca3762d9-2659-4cad-8039-3da9a5908d2c)
+## Pagina Creacion de Cheques
+![image](https://github.com/user-attachments/assets/54176c3d-17ba-4dc9-b64a-4067291778df)
+## Pagina Anulacion de Cheques
+![image](https://github.com/user-attachments/assets/d94c7141-c128-4589-b37c-d022835298b1)
+## Pagina para Sacar fuera de Circulacion de Cheques
+![image](https://github.com/user-attachments/assets/6f1986ce-ecdd-4589-b685-7f80597df60f)
+## Pagina de Conciliacion
+![image](https://github.com/user-attachments/assets/22e021ec-825c-43d9-8861-0787fe93a93d)
+## Pagina de Reporte
+![image](https://github.com/user-attachments/assets/d8b2d33d-a308-4f66-8357-c0b959f529f4)
+
+
+
+
+
+
 ## Estructura del Proyecto
 
 El proyecto está organizado en las siguientes carpetas y archivos:
