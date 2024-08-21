@@ -28,7 +28,8 @@ Navega por las diferentes páginas del sistema para gestionar cheques, transacci
 - **Navegador Web** compatible con HTML5, CSS3 y JavaScript.
 
 
-#Imagenes de Referencia 
+# Imagenes de Referencia
+
 ## Login
 ![image](https://github.com/user-attachments/assets/702ddbd2-7041-4385-9858-849833f93876)
 ## Pagina Inicial
